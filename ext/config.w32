@@ -1,0 +1,17 @@
+ARG_ENABLE("arangodbclient", "enable arangodbclient", "no");
+
+if (PHP_ARANGODBCLIENT != "no") {
+  EXTENSION("arangodbclient", "arangodbclient.c", null, "-I"+configure_module_dirname);
+  ADD_SOURCES(configure_module_dirname + "/kernel", "main.c memory.c exception.c debug.c backtrace.c object.c array.c string.c fcall.c require.c file.c operators.c math.c concat.c variables.c filter.c iterator.c exit.c time.c", "arangodbclient");
+  /* PCRE is always included on WIN32 */
+  AC_DEFINE("ZEPHIR_USE_PHP_PCRE", 1, "Whether PHP pcre extension is present at compile time");
+  if (PHP_JSON != "no") {
+    ADD_EXTENSION_DEP("arangodbclient", "json");
+    AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
+  }
+  
+  ADD_SOURCES(configure_module_dirname + "/arangodbclient", "handler.zep.c document.zep.c exception.zep.c documenthandler.zep.c adminhandler.zep.c aqluserfunction.zep.c batch.zep.c batchpart.zep.c bindvars.zep.c clientexception.zep.c collection.zep.c collectionhandler.zep.c connectexception.zep.c connection.zep.c connectionoptions.zep.c cursor.zep.c database.zep.c defaultvalues.zep.c edge.zep.c edgedefinition.zep.c edgehandler.zep.c endpoint.zep.c export.zep.c exportcursor.zep.c foxxhandler.zep.c graph.zep.c graphhandler.zep.c httphelper.zep.c httpresponse.zep.c querycachehandler.zep.c queryhandler.zep.c serverexception.zep.c statement.zep.c tracerequest.zep.c traceresponse.zep.c transaction.zep.c traversal.zep.c updatepolicy.zep.c urlhelper.zep.c urls.zep.c user.zep.c userhandler.zep.c valuevalidator.zep.c vertex.zep.c vertexhandler.zep.c", "arangodbclient");
+  ADD_FLAG("CFLAGS_ARANGODBCLIENT", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
+  ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
+  ADD_FLAG("LDFLAGS", "/LTCG");
+}
