@@ -15,7 +15,7 @@ class EdgeHandler extends DocumentHandler
         return Edge::createFromArray(data, options);
     }
     
-    public function save(collection, <Document> document, array options = [])
+    public function save(collection, document, array options = [])
     {
         throw new ClientException("Edges don't have a save() method. Please use saveEdge()");
     }
