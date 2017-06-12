@@ -319,5 +319,29 @@ class EdgeHandler extends Handler
         return revision;
     }
 
+    protected function createCollectionIfOptions(collection, array options)
+    {
+        var value, collectionHandler, e;
     
+        if !array_key_exists(CollectionHandler::OPTION_CREATE_COLLECTION, options) {
+            return;
+        }
+        let value =  (bool) options[CollectionHandler::OPTION_CREATE_COLLECTION];
+        if !value {
+            return;
+        }
+        let collectionHandler =  new CollectionHandler(this->getConnection());
+        if array_key_exists("createCollectionType", options) {
+            let options["type"] = options["createCollectionType"];
+            unset options["createCollectionType"];
+        
+        }
+        unset options["createCollection"];
+        
+        try {
+            collectionHandler->create(collection, options);
+        } catch Exception, e {
+            throw e;
+        }
+    }
 }
