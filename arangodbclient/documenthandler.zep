@@ -264,7 +264,7 @@ class DocumentHandler extends Handler
         var documentId;
     
         let documentId = document;
-        if document instanceof Document {
+        if (document instanceof Document) {
             let documentId =  document->getId();
         }
         if !is_int(documentId) || is_string(documentId) || is_float(documentId) || trim(documentId) === "" {
@@ -278,7 +278,7 @@ class DocumentHandler extends Handler
         var revision;
     
         let revision =  null;
-        if document instanceof Document {
+        if (document instanceof Document) {
             let revision =  document->getRevision();
         }
         return revision;
