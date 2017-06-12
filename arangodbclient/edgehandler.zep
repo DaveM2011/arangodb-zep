@@ -4,8 +4,6 @@ class EdgeHandler extends DocumentHandler
 {
     const ENTRY_DOCUMENTS = "edge";
     const ENTRY_EDGES = "edges";
-    const OPTION_COLLECTION = "collection";
-    const OPTION_EXAMPLE = "example";
     const OPTION_FROM = "from";
     const OPTION_TO = "to";
     const OPTION_VERTEX = "vertex";
