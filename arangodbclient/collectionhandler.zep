@@ -506,7 +506,7 @@ class CollectionHandler extends Handler
     
     public function byExample(collectionId, document, array options = [])
     {
-        var _documentClass, body, tmpArray501c87e4e9953e248cd2fef6f085d22a, tmpArray77d855f102ad46854dec832b413f9ba6, response, batchPart, tmpArray1e00babd21b846e8784828282c5d16e7;
+        var _documentClass, body, tmpArray501c87e4e9953e248cd2fef6f085d22a, tmpArray77d855f102ad46854dec832b413f9ba6, response, batchPart;
     
         let _documentClass =  this->_documentClass;
         if is_array(document) {
@@ -524,29 +524,28 @@ class CollectionHandler extends Handler
             return batchPart;
         }
         let options["isNew"] = false;
-        let tmpArray1e00babd21b846e8784828282c5d16e7 = ["_documentClass" : this->_documentClass];
-        let options =  array_merge(tmpArray1e00babd21b846e8784828282c5d16e7, options);
+        let options =  array_merge(["_documentClass" : this->_documentClass], options);
         return new Cursor(this->getConnection(), response->getJson(), options);
     }
     
     public function firstExample(collectionId, document, array options = []) -> <Document>
     {
-        var _documentClass, data, tmpArrayded11d6f13946c3c52f677001f5a9187, response, batchPart;
+        var _documentClass, data, response, batchPart;
     
-        let _documentClass =  this->_documentClass;
+        let _documentClass = this->_documentClass;
         if is_array(document) {
-            let document =  {_documentClass}::createFromArray(document, options);
+            let document = {_documentClass}::createFromArray(document, options);
         }
         if !(document instanceof Document) {
             throw new ClientException("Invalid example document specification");
         }
-        let data =  [self::OPTION_COLLECTION : collectionId, self::OPTION_EXAMPLE : document->getAll(tmpArrayded11d6f13946c3c52f677001f5a9187)];
-        let response =  this->getConnection()->put(Urls::URL_FIRST_EXAMPLE, this->json_encode_wrapper(data));
-        let batchPart =  response->getBatchPart();
+        let data = [self::OPTION_COLLECTION : collectionId, self::OPTION_EXAMPLE : document->getAll()];
+        let response = this->getConnection()->put(Urls::URL_FIRST_EXAMPLE, this->json_encode_wrapper(data));
+        let batchPart = response->getBatchPart();
         if batchPart {
             return batchPart;
         }
-        let data =  response->getJson();
+        let data = response->getJson();
         let options["_isNew"] = false;
         return {_documentClass}::createFromArray(data["document"], options);
     }
