@@ -54,7 +54,7 @@ class DocumentHandler extends Handler
                 let headerElements["If-None-Match"] =  "\"" . options["revision"] . "\"";
             }
         }
-        let response =  this->getConnection()->get(url, headerElements);
+        let response = this->getConnection()->get(url, headerElements);
         if response->getHttpCode() === 304 {
             throw new ClientException("Document has not changed.");
         }
@@ -70,7 +70,7 @@ class DocumentHandler extends Handler
     {
         var headerElements, response, headers;
     
-        let collection =  this->makeCollection(collection);
+        let collection = this->makeCollection(collection);
         let url =  UrlHelper::buildUrl(url, [collection, documentId]);
         let headerElements =  [];
         if revision !== null && ifMatch !== null {
@@ -80,8 +80,8 @@ class DocumentHandler extends Handler
                 let headerElements["If-None-Match"] =  "\"" . revision . "\"";
             }
         }
-        let response =  this->getConnection()->head(url, headerElements);
-        let headers =  response->getHeaders();
+        let response = this->getConnection()->head(url, headerElements);
+        let headers = response->getHeaders();
         let headers["httpCode"] =  response->getHttpCode();
         return headers;
     }
@@ -90,7 +90,7 @@ class DocumentHandler extends Handler
     {
         var _documentClass;
     
-        let _documentClass =  this->_documentClass;
+        let _documentClass = this->_documentClass;
         return {_documentClass}::createFromArray(data, options);
     }
     
@@ -102,7 +102,7 @@ class DocumentHandler extends Handler
             if collection === null {
                 throw new ClientException("A collection id is required to store a new document.");
             }
-            let result =  this->save(collection, document, options);
+            let result = this->save(collection, document, options);
             document->setIsNew(false);
             return result;
         } else {
@@ -117,10 +117,10 @@ class DocumentHandler extends Handler
     {
         var _documentClass, params, tmpArrayd22098ace3d2df0c6462f27eeba25312, url, data, response, json, batchPart, location, id;
     
-        let collection =  this->makeCollection(collection);
-        let _documentClass =  this->_documentClass;
+        let collection = this->makeCollection(collection);
+        let _documentClass = this->_documentClass;
         let tmpArrayd22098ace3d2df0c6462f27eeba25312 = ["waitForSync" : null, "silent" : false, "createCollection" : this->getConnection()->getOption(ConnectionOptions::OPTION_CREATE)];
-        let params =  this->includeOptionsInParams(options, tmpArrayd22098ace3d2df0c6462f27eeba25312);
+        let params = this->includeOptionsInParams(options, tmpArrayd22098ace3d2df0c6462f27eeba25312);
         this->createCollectionIfOptions(collection, params);
         let url =  UrlHelper::appendParamsUrl(Urls::URL_DOCUMENT . "/" . collection, params);
         if is_array(document) {
@@ -264,7 +264,7 @@ class DocumentHandler extends Handler
         var documentId;
     
         let documentId = document;
-        if document instanceof Document {
+        if (document instanceof Document) {
             let documentId =  document->getId();
         }
         if !is_int(documentId) || is_string(documentId) || is_float(documentId) || trim(documentId) === "" {
@@ -278,7 +278,7 @@ class DocumentHandler extends Handler
         var revision;
     
         let revision =  null;
-        if document instanceof Document {
+        if (document instanceof Document) {
             let revision =  document->getRevision();
         }
         return revision;

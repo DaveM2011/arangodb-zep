@@ -1,0 +1,5 @@
+*.log
+.temp
+ext/.libs
+ext/arangodbclient
+ext/modules

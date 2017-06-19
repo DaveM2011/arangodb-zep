@@ -13,7 +13,7 @@ class Endpoint
     const ENTRY_DATABASES = "databases";
     public function __construct(string value) -> void
     {
-        if !(self::isValid(value)) {
+        if !self::isValid(value) {
             throw new ClientException(sprintf("invalid endpoint specification '%s'", value));
         }
         let this->_value = value;
@@ -57,15 +57,14 @@ class Endpoint
         if !is_string(value) {
             return false;
         }
-        let type =  self::getType(value);
-        return !(type === null);
+        let type = self::getType(value);
+        return !type == null;
     }
     
     public static function listEndpoints(<Connection> connection) -> array
     {
         var response;
-    
-        let response =  connection->get(Urls::URL_ENDPOINT);
+        let response = connection->get(Urls::URL_ENDPOINT);
         return response->getJson();
     }
 

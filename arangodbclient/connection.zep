@@ -14,10 +14,9 @@ class Connection
     protected _database = "";
     public function __construct(array options)
     {
-        let this->_options =  new ConnectionOptions(options);
-        let this->_useKeepAlive =  this->_options[ConnectionOptions::OPTION_CONNECTION] === "Keep-Alive";
-        this->setDatabase(this->_options[ConnectionOptions::OPTION_DATABASE]);
-        this->updateHttpHeader();
+        let this->_options = new ConnectionOptions(options);
+        let this->_useKeepAlive =  this->_options->offsetGet(ConnectionOptions::OPTION_CONNECTION) == "Keep-Alive";
+        this->setDatabase(this->_options->offsetGet(ConnectionOptions::OPTION_DATABASE));
     }
     
     public function __destruct()
@@ -110,24 +109,24 @@ class Connection
     
     protected function updateHttpHeader() -> void
     {
-        var endpoint, authorizationValue;
-    
-        let this->_httpHeader =  HttpHelper::EOL;
-        let endpoint = this->_options[ConnectionOptions::OPTION_ENDPOINT];
-        if Endpoint::getType(endpoint) !== Endpoint::TYPE_UNIX {
-            let this->_httpHeader .= sprintf("Host: %s%s", Endpoint::getHost(endpoint), HttpHelper::EOL);
+        var endpoint, authorizationValue, _httpHeader = "";
+        let _httpHeader = HttpHelper::EOL;
+        let endpoint = this->_options->offsetGet(ConnectionOptions::OPTION_ENDPOINT);
+        if Endpoint::getType(endpoint) != Endpoint::TYPE_UNIX {
+            let _httpHeader .= sprintf("Host: %s%s", Endpoint::getHost(endpoint), HttpHelper::EOL);
         }
-        if isset this->_options[ConnectionOptions::OPTION_AUTH_TYPE] && isset this->_options[ConnectionOptions::OPTION_AUTH_USER] {
-            let authorizationValue =  base64_encode(this->_options[ConnectionOptions::OPTION_AUTH_USER] . ":" . this->_options[ConnectionOptions::OPTION_AUTH_PASSWD]);
-            let this->_httpHeader .= sprintf("Authorization: %s %s%s", this->_options[ConnectionOptions::OPTION_AUTH_TYPE], authorizationValue, HttpHelper::EOL);
+        if this->_options->offsetExists(ConnectionOptions::OPTION_AUTH_TYPE) && this->_options->offsetExists(ConnectionOptions::OPTION_AUTH_USER) {
+            let authorizationValue = base64_encode(this->_options->offsetGet(ConnectionOptions::OPTION_AUTH_USER) . ":" . this->_options->offsetGet(ConnectionOptions::OPTION_AUTH_PASSWD));
+            let _httpHeader .= sprintf("Authorization: %s %s%s", this->_options->offsetGet(ConnectionOptions::OPTION_AUTH_TYPE), authorizationValue, HttpHelper::EOL);
         }
-        if isset this->_options[ConnectionOptions::OPTION_CONNECTION] {
-            let this->_httpHeader .= sprintf("Connection: %s%s", this->_options[ConnectionOptions::OPTION_CONNECTION], HttpHelper::EOL);
+        if this->_options->offsetExists(ConnectionOptions::OPTION_CONNECTION) {
+            let _httpHeader .= sprintf("Connection: %s%s", this->_options->offsetGet(ConnectionOptions::OPTION_CONNECTION), HttpHelper::EOL);
         }
-        if this->_database === "" {
+        let this->_httpHeader = _httpHeader;
+        if this->_database == "" {
             let this->_baseUrl = "/_db/_system";
         } else {
-            let this->_baseUrl =  "/_db/" . urlencode(this->_database);
+            let this->_baseUrl = "/_db/" . urlencode(this->_database);
         }
     }
     
@@ -137,12 +136,12 @@ class Connection
     
         if this->_useKeepAlive && this->_handle && is_resource(this->_handle) {
             let handle =  this->_handle;
-            if !(feof(handle)) {
+            if !feof(handle) {
                 return handle;
             }
             fclose(this->_handle);
             let this->_handle = 0;
-            if !(this->_options[ConnectionOptions::OPTION_RECONNECT]) {
+            if !this->_options->offsetGet(ConnectionOptions::OPTION_RECONNECT) {
                 throw new ClientException("Server has closed the connection already.");
             }
         }
@@ -153,67 +152,67 @@ class Connection
         return handle;
     }
     
-    protected function executeRequest(string method, string url, string data, array customHeaders = []) -> <HttpResponse>
+    protected function executeRequest(string method, string url, string data, array customHeaders = [])
     {
         var wasAsync, request, batchPart, traceFunc, header, tmpListHeader, headers, handle, startTime, result, timeTaken, status, response;
     
         //assert(this->_httpHeader !== "");
         let wasAsync =  false;
-        if is_array(customHeaders) && isset customHeaders[HttpHelper::ASYNC_HEADER] {
+        if isset customHeaders[HttpHelper::ASYNC_HEADER] {
             let wasAsync =  true;
         }
         HttpHelper::validateMethod(method);
         let url =  this->_baseUrl . url;
-        if this->_batchRequest === false {
-            if this->_captureBatch === true {
+        if this->_batchRequest == false {
+            if this->_captureBatch == true {
                 this->_options->offsetSet(ConnectionOptions::OPTION_BATCHPART, true);
-                let request =  HttpHelper::buildRequest(this->_options, this->_httpHeader, method, url, data, customHeaders);
+                let request = HttpHelper::buildRequest(this->_options, this->_httpHeader, method, url, data, customHeaders);
                 this->_options->offsetSet(ConnectionOptions::OPTION_BATCHPART, false);
             } else {
-                let request =  HttpHelper::buildRequest(this->_options, this->_httpHeader, method, url, data, customHeaders);
+                let request = HttpHelper::buildRequest(this->_options, this->_httpHeader, method, url, data, customHeaders);
             }
-            if this->_captureBatch === true {
+            if this->_captureBatch == true {
                 let batchPart =  this->doBatch(method, request);
-                if batchPart !== null {
+                if batchPart != null {
                     return batchPart;
                 }
             }
         } else {
-            let this->_batchRequest =  false;
+            let this->_batchRequest = false;
             this->_options->offsetSet(ConnectionOptions::OPTION_BATCH, true);
-            let request =  HttpHelper::buildRequest(this->_options, this->_httpHeader, method, url, data, customHeaders);
+            let request = HttpHelper::buildRequest(this->_options, this->_httpHeader, method, url, data, customHeaders);
             this->_options->offsetSet(ConnectionOptions::OPTION_BATCH, false);
         }
-        let traceFunc = this->_options[ConnectionOptions::OPTION_TRACE];
+        let traceFunc = this->_options->offsetGet(ConnectionOptions::OPTION_TRACE);
         if traceFunc {
-            if this->_options[ConnectionOptions::OPTION_ENHANCED_TRACE] {
+            if this->_options->offsetGet(ConnectionOptions::OPTION_ENHANCED_TRACE) {
                 let tmpListHeader = HttpHelper::parseHttpMessage(request, url, method);
                 let header = tmpListHeader[0];
-                let headers =  HttpHelper::parseHeaders(header);
+                let headers = HttpHelper::parseHeaders(header);
                 {traceFunc}(new TraceRequest(headers[2], method, url, data));
             } else {
                 {traceFunc}("send", request);
             }
         }
-        let handle =  this->getHandle();
+        let handle = this->getHandle();
         if handle {
             if traceFunc {
-                let startTime =  microtime(true);
+                let startTime = microtime(true);
             }
-            let result =  HttpHelper::transfer(handle, request, method);
+            let result = HttpHelper::transfer(handle, request, method);
             if traceFunc {
-                let timeTaken =  microtime(true) - startTime;
+                let timeTaken = microtime(true) - startTime;
             }
-            let status =  socket_get_status(handle);
+            let status = socket_get_status(handle);
             if status["timed_out"] {
                 throw new ClientException("Got a timeout while waiting for the server's response", 408);
             }
-            if !(this->_useKeepAlive) {
+            if !this->_useKeepAlive {
                 fclose(handle);
             }
-            let response =  new HttpResponse(result, url, method, wasAsync);
+            let response = new HttpResponse(result, url, method, wasAsync);
             if traceFunc {
-                if this->_options[ConnectionOptions::OPTION_ENHANCED_TRACE] {
+                if this->_options->offsetGet(ConnectionOptions::OPTION_ENHANCED_TRACE) {
                     {traceFunc}(new TraceResponse(response->getHeaders(), response->getHttpCode(), response->getBody(), timeTaken));
                 } else {
                     {traceFunc}("receive", result);
@@ -335,11 +334,10 @@ class Connection
     public function json_encode_wrapper(data, options = 0) -> string
     {
         var response;
-    
-        if this->_options[ConnectionOptions::OPTION_CHECK_UTF8_CONFORM] === true {
+        if this->_options->offsetGet(ConnectionOptions::OPTION_CHECK_UTF8_CONFORM) == true {
             self::check_encoding(data);
         }
-        if empty(data) {
+        if empty data {
             let response =  json_encode(data, options | JSON_FORCE_OBJECT);
         } else {
             let response =  json_encode(data, options);
@@ -349,7 +347,7 @@ class Connection
     
     public function setDatabase(string database) -> void
     {
-        let this->_options[ConnectionOptions::OPTION_DATABASE] = database;
+        this->_options->offsetSet(ConnectionOptions::OPTION_DATABASE, database);
         let this->_database = database;
         this->updateHttpHeader();
     }
