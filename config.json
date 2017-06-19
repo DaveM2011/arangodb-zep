@@ -57,7 +57,7 @@
     "description": "",
     "author": "",
     "version": "0.0.1",
-    "verbose": false,
+    "verbose": true,
     "requires": {
         "extensions": []
     }
