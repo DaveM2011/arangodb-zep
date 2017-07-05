@@ -1,0 +1,136 @@
+arangodbclient.lo: /data/arangodb-zep/ext/arangodbclient.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient.c -o arangodbclient.lo 
+kernel/main.lo: /data/arangodb-zep/ext/kernel/main.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/main.c -o kernel/main.lo 
+kernel/memory.lo: /data/arangodb-zep/ext/kernel/memory.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/memory.c -o kernel/memory.lo 
+kernel/exception.lo: /data/arangodb-zep/ext/kernel/exception.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/exception.c -o kernel/exception.lo 
+kernel/debug.lo: /data/arangodb-zep/ext/kernel/debug.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/debug.c -o kernel/debug.lo 
+kernel/backtrace.lo: /data/arangodb-zep/ext/kernel/backtrace.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/backtrace.c -o kernel/backtrace.lo 
+kernel/object.lo: /data/arangodb-zep/ext/kernel/object.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/object.c -o kernel/object.lo 
+kernel/array.lo: /data/arangodb-zep/ext/kernel/array.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/array.c -o kernel/array.lo 
+kernel/string.lo: /data/arangodb-zep/ext/kernel/string.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/string.c -o kernel/string.lo 
+kernel/fcall.lo: /data/arangodb-zep/ext/kernel/fcall.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/fcall.c -o kernel/fcall.lo 
+kernel/require.lo: /data/arangodb-zep/ext/kernel/require.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/require.c -o kernel/require.lo 
+kernel/file.lo: /data/arangodb-zep/ext/kernel/file.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/file.c -o kernel/file.lo 
+kernel/operators.lo: /data/arangodb-zep/ext/kernel/operators.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/operators.c -o kernel/operators.lo 
+kernel/math.lo: /data/arangodb-zep/ext/kernel/math.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/math.c -o kernel/math.lo 
+kernel/concat.lo: /data/arangodb-zep/ext/kernel/concat.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/concat.c -o kernel/concat.lo 
+kernel/variables.lo: /data/arangodb-zep/ext/kernel/variables.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/variables.c -o kernel/variables.lo 
+kernel/filter.lo: /data/arangodb-zep/ext/kernel/filter.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/filter.c -o kernel/filter.lo 
+kernel/iterator.lo: /data/arangodb-zep/ext/kernel/iterator.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/iterator.c -o kernel/iterator.lo 
+kernel/time.lo: /data/arangodb-zep/ext/kernel/time.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/time.c -o kernel/time.lo 
+kernel/exit.lo: /data/arangodb-zep/ext/kernel/exit.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/kernel/exit.c -o kernel/exit.lo 
+arangodbclient/handler.lo: /data/arangodb-zep/ext/arangodbclient/handler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/handler.zep.c -o arangodbclient/handler.lo 
+arangodbclient/document.lo: /data/arangodb-zep/ext/arangodbclient/document.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/document.zep.c -o arangodbclient/document.lo 
+arangodbclient/exception.lo: /data/arangodb-zep/ext/arangodbclient/exception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/exception.zep.c -o arangodbclient/exception.lo 
+arangodbclient/documenthandler.lo: /data/arangodb-zep/ext/arangodbclient/documenthandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/documenthandler.zep.c -o arangodbclient/documenthandler.lo 
+arangodbclient/adminhandler.lo: /data/arangodb-zep/ext/arangodbclient/adminhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/adminhandler.zep.c -o arangodbclient/adminhandler.lo 
+arangodbclient/aqluserfunction.lo: /data/arangodb-zep/ext/arangodbclient/aqluserfunction.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/aqluserfunction.zep.c -o arangodbclient/aqluserfunction.lo 
+arangodbclient/batch.lo: /data/arangodb-zep/ext/arangodbclient/batch.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/batch.zep.c -o arangodbclient/batch.lo 
+arangodbclient/batchpart.lo: /data/arangodb-zep/ext/arangodbclient/batchpart.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/batchpart.zep.c -o arangodbclient/batchpart.lo 
+arangodbclient/bindvars.lo: /data/arangodb-zep/ext/arangodbclient/bindvars.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/bindvars.zep.c -o arangodbclient/bindvars.lo 
+arangodbclient/clientexception.lo: /data/arangodb-zep/ext/arangodbclient/clientexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/clientexception.zep.c -o arangodbclient/clientexception.lo 
+arangodbclient/collection.lo: /data/arangodb-zep/ext/arangodbclient/collection.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/collection.zep.c -o arangodbclient/collection.lo 
+arangodbclient/collectionhandler.lo: /data/arangodb-zep/ext/arangodbclient/collectionhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/collectionhandler.zep.c -o arangodbclient/collectionhandler.lo 
+arangodbclient/connectexception.lo: /data/arangodb-zep/ext/arangodbclient/connectexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/connectexception.zep.c -o arangodbclient/connectexception.lo 
+arangodbclient/connection.lo: /data/arangodb-zep/ext/arangodbclient/connection.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/connection.zep.c -o arangodbclient/connection.lo 
+arangodbclient/connectionoptions.lo: /data/arangodb-zep/ext/arangodbclient/connectionoptions.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/connectionoptions.zep.c -o arangodbclient/connectionoptions.lo 
+arangodbclient/cursor.lo: /data/arangodb-zep/ext/arangodbclient/cursor.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/cursor.zep.c -o arangodbclient/cursor.lo 
+arangodbclient/database.lo: /data/arangodb-zep/ext/arangodbclient/database.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/database.zep.c -o arangodbclient/database.lo 
+arangodbclient/defaultvalues.lo: /data/arangodb-zep/ext/arangodbclient/defaultvalues.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/defaultvalues.zep.c -o arangodbclient/defaultvalues.lo 
+arangodbclient/edge.lo: /data/arangodb-zep/ext/arangodbclient/edge.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/edge.zep.c -o arangodbclient/edge.lo 
+arangodbclient/edgedefinition.lo: /data/arangodb-zep/ext/arangodbclient/edgedefinition.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/edgedefinition.zep.c -o arangodbclient/edgedefinition.lo 
+arangodbclient/edgehandler.lo: /data/arangodb-zep/ext/arangodbclient/edgehandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/edgehandler.zep.c -o arangodbclient/edgehandler.lo 
+arangodbclient/endpoint.lo: /data/arangodb-zep/ext/arangodbclient/endpoint.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/endpoint.zep.c -o arangodbclient/endpoint.lo 
+arangodbclient/export.lo: /data/arangodb-zep/ext/arangodbclient/export.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/export.zep.c -o arangodbclient/export.lo 
+arangodbclient/exportcursor.lo: /data/arangodb-zep/ext/arangodbclient/exportcursor.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/exportcursor.zep.c -o arangodbclient/exportcursor.lo 
+arangodbclient/foxxhandler.lo: /data/arangodb-zep/ext/arangodbclient/foxxhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/foxxhandler.zep.c -o arangodbclient/foxxhandler.lo 
+arangodbclient/graph.lo: /data/arangodb-zep/ext/arangodbclient/graph.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/graph.zep.c -o arangodbclient/graph.lo 
+arangodbclient/graphhandler.lo: /data/arangodb-zep/ext/arangodbclient/graphhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/graphhandler.zep.c -o arangodbclient/graphhandler.lo 
+arangodbclient/httphelper.lo: /data/arangodb-zep/ext/arangodbclient/httphelper.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/httphelper.zep.c -o arangodbclient/httphelper.lo 
+arangodbclient/httpresponse.lo: /data/arangodb-zep/ext/arangodbclient/httpresponse.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/httpresponse.zep.c -o arangodbclient/httpresponse.lo 
+arangodbclient/querycachehandler.lo: /data/arangodb-zep/ext/arangodbclient/querycachehandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/querycachehandler.zep.c -o arangodbclient/querycachehandler.lo 
+arangodbclient/queryhandler.lo: /data/arangodb-zep/ext/arangodbclient/queryhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/queryhandler.zep.c -o arangodbclient/queryhandler.lo 
+arangodbclient/serverexception.lo: /data/arangodb-zep/ext/arangodbclient/serverexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/serverexception.zep.c -o arangodbclient/serverexception.lo 
+arangodbclient/statement.lo: /data/arangodb-zep/ext/arangodbclient/statement.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/statement.zep.c -o arangodbclient/statement.lo 
+arangodbclient/tracerequest.lo: /data/arangodb-zep/ext/arangodbclient/tracerequest.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/tracerequest.zep.c -o arangodbclient/tracerequest.lo 
+arangodbclient/traceresponse.lo: /data/arangodb-zep/ext/arangodbclient/traceresponse.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/traceresponse.zep.c -o arangodbclient/traceresponse.lo 
+arangodbclient/transaction.lo: /data/arangodb-zep/ext/arangodbclient/transaction.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/transaction.zep.c -o arangodbclient/transaction.lo 
+arangodbclient/traversal.lo: /data/arangodb-zep/ext/arangodbclient/traversal.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/traversal.zep.c -o arangodbclient/traversal.lo 
+arangodbclient/updatepolicy.lo: /data/arangodb-zep/ext/arangodbclient/updatepolicy.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/updatepolicy.zep.c -o arangodbclient/updatepolicy.lo 
+arangodbclient/urlhelper.lo: /data/arangodb-zep/ext/arangodbclient/urlhelper.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/urlhelper.zep.c -o arangodbclient/urlhelper.lo 
+arangodbclient/urls.lo: /data/arangodb-zep/ext/arangodbclient/urls.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/urls.zep.c -o arangodbclient/urls.lo 
+arangodbclient/user.lo: /data/arangodb-zep/ext/arangodbclient/user.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/user.zep.c -o arangodbclient/user.lo 
+arangodbclient/userhandler.lo: /data/arangodb-zep/ext/arangodbclient/userhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/userhandler.zep.c -o arangodbclient/userhandler.lo 
+arangodbclient/valuevalidator.lo: /data/arangodb-zep/ext/arangodbclient/valuevalidator.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/valuevalidator.zep.c -o arangodbclient/valuevalidator.lo 
+arangodbclient/vertex.lo: /data/arangodb-zep/ext/arangodbclient/vertex.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/vertex.zep.c -o arangodbclient/vertex.lo 
+arangodbclient/vertexhandler.lo: /data/arangodb-zep/ext/arangodbclient/vertexhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data/arangodb-zep/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data/arangodb-zep/ext/arangodbclient/vertexhandler.zep.c -o arangodbclient/vertexhandler.lo 
+$(phplibdir)/arangodbclient.la: ./arangodbclient.la
+	$(LIBTOOL) --mode=install cp ./arangodbclient.la $(phplibdir)
+
+./arangodbclient.la: $(shared_objects_arangodbclient) $(ARANGODBCLIENT_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_arangodbclient) $(ARANGODBCLIENT_SHARED_LIBADD)
+

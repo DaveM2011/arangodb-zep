@@ -16,7 +16,7 @@ class Connection
     {
         let this->_options = new ConnectionOptions(options);
         let this->_useKeepAlive =  this->_options->offsetGet(ConnectionOptions::OPTION_CONNECTION) == "Keep-Alive";
-        this->setDatabase(this->_options->offsetGet(ConnectionOptions::OPTION_DATABASE));
+		this->setDatabase(this->_options->offsetGet(ConnectionOptions::OPTION_DATABASE));
     }
     
     public function __destruct()
@@ -26,12 +26,12 @@ class Connection
         }
     }
     
-    public function setOption(string name, string value) -> void
+    public function setOption(string name, var value) -> void
     {
         if name === ConnectionOptions::OPTION_ENDPOINT || name === ConnectionOptions::OPTION_HOST || name === ConnectionOptions::OPTION_PORT || name === ConnectionOptions::OPTION_VERIFY_CERT || name === ConnectionOptions::OPTION_CIPHERS || name === ConnectionOptions::OPTION_ALLOW_SELF_SIGNED {
             throw new ClientException("Must not set option " . value . " after connection is created.");
         }
-        let this->_options[name] = value;
+        this->_options->offsetSet(name, value);
         if name === ConnectionOptions::OPTION_TIMEOUT {
             if is_resource(this->_handle) {
                 stream_set_timeout(this->_handle, value);
