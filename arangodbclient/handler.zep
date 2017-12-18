@@ -60,13 +60,16 @@ abstract class Handler
     
     protected function makeCollection(value) -> string
     {
+        if typeof value == "string" {
+            return value;
+        }
         if value instanceof Collection {
             return value->getName();
         }
         if value instanceof Document {
             return value->getCollectionId();
         }
-        return value;
+        return "";
     }
     
     public function setDocumentClass(string classs) -> <Handler>
